@@ -2,8 +2,8 @@ import { Redirect, Route, BrowserRouter as Router, Switch } from 'react-router-d
 
 import MainNavigation from './shared/components/Navigation/MainNavigation';
 import NewPlace from './places/pages/NewPlace';
-import Place from './places/components/Place';
 import React from 'react';
+import UserPlaces from './places/pages/UserPlaces'
 import Users from './user/pages/Users';
 
 const App = () => {
@@ -13,14 +13,14 @@ const App = () => {
             <main>
                 <Switch>
                     <Route path="/" exact>
-                        <Place />
+                        <Users />
                     </Route>
 
                     <Route path="/places/new" exact>
                         <NewPlace />
                     </Route>
-                    <Route path="/user" exact>
-                        <Users />
+                    <Route path='/:userId/places' exact>
+                        <UserPlaces />
                     </Route>
                     <Redirect to="/" />
                 </Switch>
